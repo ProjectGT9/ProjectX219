@@ -1,0 +1,9 @@
+[
+  {
+    "device_id": "device456",
+    "key": "key67890",
+    "expirydate": "15-06-2025",
+    "Allowoffline": false,
+    "subscriber_uid_hash": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd38c0fdb59f2b8b6d0"
+  }
+]
