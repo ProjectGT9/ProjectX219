@@ -7,10 +7,10 @@
     "subscriber_uid_hash": "212fe5e509fcd422fffd324f1de3656264fff15c9d225bb131bc191476e3ee1a"
   },
   {
-  "device_id": "f84698e5d4919d28",
-  "key": "efa37cebad1069df8048be03c99c88f1",
-  "expirydate": "22-05-2026",
-  "Allowoffline": false,
-  "subscriber_uid_hash": "fe0b9e8aedf4ac5391d9745a91a3845f8d88b54bd5fea49930b81aef97cd95c5"
-}
+    "device_id": "f84698e5d4919d28",
+    "key": "efa37cebad1069df8048be03c99c88f1",
+    "expirydate": "22-05-2026",
+    "Allowoffline": false,
+    "subscriber_uid_hash": "fe0b9e8aedf4ac5391d9745a91a3845f8d88b54bd5fea49930b81aef97cd95c5"
+  }
 ]
