@@ -12,5 +12,12 @@
     "expirydate": "09-05-2026",
     "Allowoffline": false,
     "subscriber_uid_hash": "3f0f0d7efc654591b8a1aae64ac725373a4cbca49a04a2865e1e318765928968"
+  },
+  {
+    "device_id": "f84698e5d4919d28",
+    "key": "b3221178f4f6d2c36722ff61a280b40f",
+    "expirydate": "13-07-2026",
+    "Allowoffline": false,
+    "subscriber_uid_hash": "3f0f0d7efc654591b8a1aae64ac725373a4cbca49a04a2865e1e318765928968"
   }
 ]
