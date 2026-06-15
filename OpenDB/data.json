@@ -26,5 +26,12 @@
     "expirydate": "15-07-2026",
     "Allowoffline": false,
     "subscriber_uid_hash": "Zesahan Molla"
+  },
+  {
+    "device_id": "6becb158c9b508e0",
+    "key": "b3221178f4f6d2c36722ff61a280b40t",
+    "expirydate": "15-07-2026",
+    "Allowoffline": false,
+    "subscriber_uid_hash": "Sarfaraz"
   }
 ]
