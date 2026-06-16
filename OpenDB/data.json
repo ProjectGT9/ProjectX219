@@ -40,5 +40,12 @@
     "expirydate": "15-07-2026",
     "Allowoffline": false,
     "subscriber_uid_hash": "Radhe"
+  },
+  {
+    "device_id": "d7acab9af8a67200",
+    "key": "b3221178f4f6d2c36725ff61a280b393",
+    "expirydate": "15-07-2026",
+    "Allowoffline": false,
+    "subscriber_uid_hash": "Moinul"
   }
 ]
