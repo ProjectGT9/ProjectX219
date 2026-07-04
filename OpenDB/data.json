@@ -54,5 +54,12 @@
     "expirydate": "01-08-2026",
     "Allowoffline": false,
     "subscriber_uid_hash": "Jasim Bhai"
+  },
+  {
+    "device_id": "ea7cc2ee1d396605",
+    "key": "b3e2h178f4f6d2c32725ff61u28ttyy3",
+    "expirydate": "04-08-2026",
+    "Allowoffline": false,
+    "subscriber_uid_hash": "Sahil Bhai"
   }
 ]
