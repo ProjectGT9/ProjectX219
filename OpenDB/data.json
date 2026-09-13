@@ -68,5 +68,12 @@
     "expirydate": "01-01-2028",
     "Allowoffline": false,
     "subscriber_uid_hash": "Admin"
+  },
+  {
+    "device_id": "32665cef6abf33e8",
+    "key": "b3llh178f1f6d2c32725ff61u99ttyy3",
+    "expirydate": "01-01-2028",
+    "Allowoffline": false,
+    "subscriber_uid_hash": "Admin"
   }
 ]
