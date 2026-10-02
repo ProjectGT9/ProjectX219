@@ -1,79 +1,9 @@
 [
   {
-    "device_id": "bb79184383da83c0",
-    "key": "372c3b3dc52a62ad5248109ad3f73278",
-    "expirydate": "30-06-2026",
-    "Allowoffline": false,
-    "subscriber_uid_hash": "212fe5e509fcd422fffd324f1de3656264fff15c9d225bb131bc191476e3ee1a"
-  },
-  {
-    "device_id": "f84698e5d4919d28",
-    "key": "b3221178f4f6d2c36722ff61a280b40f",
-    "expirydate": "09-05-2026",
-    "Allowoffline": false,
-    "subscriber_uid_hash": "3f0f0d7efc654591b8a1aae64ac725373a4cbca49a04a2865e1e318765928968"
-  },
-  {
-    "device_id": "f84698e5d4919d28",
-    "key": "b3221178f4f6d2c36722ff61a280b40f",
-    "expirydate": "13-07-2026",
-    "Allowoffline": false,
-    "subscriber_uid_hash": "3f0f0d7efc654591b8a1aae64ac725373a4cbca49a04a2865e1e318765928968"
-  },
-  {
-    "device_id": "d2afb6085678e694",
-    "key": "b3221178f4f6d2c36722ff61a280b40t",
-    "expirydate": "15-08-2026",
-    "Allowoffline": false,
-    "subscriber_uid_hash": "Zesahan Molla"
-  },
-  {
-    "device_id": "6becb158c9b508e0",
-    "key": "b3221178f4f6d2c36722ff61a280b4tp",
-    "expirydate": "15-07-2026",
-    "Allowoffline": false,
-    "subscriber_uid_hash": "Sarfaraz"
-  },
-  {
-    "device_id": "77aecee1a4b93386",
-    "key": "b3221178f4f6d2c36722ff61a280b343",
-    "expirydate": "25-07-2026",
-    "Allowoffline": false,
-    "subscriber_uid_hash": "Radhe"
-  },
-  {
-    "device_id": "d7acab9af8a67200",
-    "key": "b3221178f4f6d2c36725ff61a280b393",
-    "expirydate": "15-08-2026",
-    "Allowoffline": false,
-    "subscriber_uid_hash": "Moinul"
-  },
-  {
-    "device_id": "502ba40d6bd53259",
-    "key": "b3221178f4f6d2c36725ff61a28ttyy3",
-    "expirydate": "25-07-2026",
-    "Allowoffline": false,
-    "subscriber_uid_hash": "Jasim Bhai"
-  },
-  {
-    "device_id": "ea7cc2ee1d396605",
-    "key": "b3e2h178f4f6d2c32725ff61u28ttyy3",
-    "expirydate": "04-08-2026",
-    "Allowoffline": false,
-    "subscriber_uid_hash": "Sahil Bhai"
-  },
-  {
-    "device_id": "bb79184383da83c0",
-    "key": "b3e2h178f1f6d2c32725ff61u99ttyy3",
-    "expirydate": "01-01-2028",
-    "Allowoffline": false,
-    "subscriber_uid_hash": "Admin"
-  },
-  {
     "device_id": "32665cef6abf33e8",
-    "key": "b3llh178f1f6d2c32725ff61u99ttyy3",
-    "expirydate": "01-01-2028",
+    "key": "G1081143",
+    "expirydate": "01-01-2030",
     "Allowoffline": false,
-    "subscriber_uid_hash": "Admin"
+    "user_name": "Super Admin"
   }
 ]
