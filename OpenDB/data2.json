@@ -1,7 +1,10 @@
 [
   {
     "GID": "G1081143",
-    "eligable_for_dicount": true
+    "discount_eligible": {
+      "eligible": true,
+      "payment_qr_code_url": "https://some-payment-qr-code"
+    },
     "device_id": "32665cef6abf33e8"
   }
 ]
