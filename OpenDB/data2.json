@@ -4,7 +4,7 @@
     "discount_eligible": {
       "eligible": true,
       "payment_qr_code_url": "https://some-payment-qr-code",
-      "payment_qr_timestamp": 1742198400,
+      "payment_qr_timestamp": 1792494279,
       "payment_status": "pending"
     },
     "device_id": "32665cef6abf33e8"
