@@ -5,7 +5,7 @@
       "eligible": true,
       "payment_qr_code_url": "upi%3A%2F%2Fpay%3Fpa%3D7890888800%40ybl%26pn%3DGrab%20A%20Grub%20Services%26am%3D50%26cu%3DINR",
       "payment_qr_timestamp": 1792514340,
-      "payment_status": "pending"
+      "payment_status": "sucess"
     },
     "device_id": "32665cef6abf33e8"
   }
