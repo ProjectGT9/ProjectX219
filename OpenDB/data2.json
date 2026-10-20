@@ -5,7 +5,7 @@
       "eligible": true,
       "payment_qr_code_url": "https://some-payment-qr-code",
       "payment_qr_timestamp": 1792494720,
-      "payment_status": "pending"
+      "payment_status": "sucess"
     },
     "device_id": "32665cef6abf33e8"
   }
