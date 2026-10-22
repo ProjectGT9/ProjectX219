@@ -4,8 +4,8 @@
     "discount_eligible": {
       "eligible": true,
       "payment_qr_code_url": "gtx",
-      "payment_qr_timestamp": 1792674000,
-      "payment_status": "success"
+      "payment_qr_timestamp": 1792690680,
+      "payment_status": "pending"
     },
     "device_id": "32665cef6abf33e8"
   }
