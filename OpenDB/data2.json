@@ -11,6 +11,11 @@
       "payment_qr_expiry_timestamp": 1792690680,
       "payment_status": "pending"
     },
+    "topup_eligible": {
+      "show_topup_button": true,
+      "discount_percentage": 5,
+      "request_for_buy_redeem_code_support": "https://wa.me/7890888800?text=I want to buy a redeem code to top up my wallet. Could you please share the available options and payment details?"
+    },
     "device_id": "32665cef6abf33e8"
   }
 ]
