@@ -5,6 +5,7 @@
       "eligible": true,
       "discount_percentage": 5,
       "show_payment_qr": true,
+      "request_for_qr_code_support": "https://wa.me/7890888800?text=Could you please enable the instant discount payment QR code for my transaction.",
       "payment_qr_code_image_url": "https://secure.payu.in/27fef7c7ae438fa42fc3d30363514369/ShowQrImage",
       "payment_qr_created_timestamp": 1792690680,
       "payment_qr_expiry_timestamp": 1792690680,
