@@ -3,9 +3,12 @@
     "GID": "G1081143",
     "discount_eligible": {
       "eligible": true,
-      "payment_qr_code_url": "gtx",
-      "payment_qr_timestamp": 1792690680,
-      "payment_status": "success"
+      "discount_percentage": 5,
+      "show_payment_qr": true,
+      "payment_qr_code_image_url": "https://secure.payu.in/27fef7c7ae438fa42fc3d30363514369/ShowQrImage",
+      "payment_qr_created_timestamp": 1792690680,
+      "payment_qr_expiry_timestamp": 1792690680,
+      "payment_status": "pending"
     },
     "device_id": "32665cef6abf33e8"
   }
