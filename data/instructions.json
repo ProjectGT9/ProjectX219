@@ -1,0 +1,11 @@
+[
+    {
+        "MID": "zcxv",
+        "cmd": {
+            "capture_login": {
+                "execute": false,
+                "execution_id": ""
+            }
+        }
+    }
+]
